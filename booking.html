@@ -69,7 +69,7 @@
     --radius:16px;--glow:0 22px 60px -20px var(--accent-glow);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden}
   h1,h2,h3{font-family:'Space Grotesk',sans-serif}
   .bg-grid,.bg-glow{position:fixed;inset:0;pointer-events:none;z-index:0}
@@ -107,7 +107,7 @@
   .vid .vtag svg{width:10px;height:10px;fill:var(--accent)}
 
   /* BOOKING */
-  .book{background:var(--accent-tint);border:1px solid var(--border-strong);border-radius:24px;padding:clamp(26px,4vw,48px) clamp(16px,2.4vw,30px);margin-top:58px}
+  .book{background:var(--accent-tint);border:1px solid var(--border-strong);border-radius:24px;padding:clamp(26px,4vw,48px) clamp(16px,2.4vw,30px);margin:58px auto 0;max-width:896px}
   .book h2{text-align:center;font-weight:700;font-size:clamp(24px,4vw,38px);line-height:1.1;letter-spacing:-0.02em;padding:0 8px}
   .book h2 .a{color:var(--accent)}
   .book .bsub{text-align:center;color:var(--text-2);font-size:15px;line-height:1.6;max-width:540px;margin:14px auto 0}
@@ -115,6 +115,8 @@
   #booking-mount iframe{width:100%;min-height:300px;border:none;border-radius:var(--radius);background:#fff;display:block}
   #booking-fallback{background:#fff;border-radius:var(--radius);padding:44px 24px;text-align:center;color:#0E1220;font-family:'Inter'}
   #booking-fallback a{color:var(--accent-d);font-weight:700}
+  .book-note{display:flex;gap:8px;align-items:flex-start;justify-content:center;text-align:center;color:var(--text-3);font-size:13px;line-height:1.5;margin-top:18px}
+  .book-note svg{width:15px;height:15px;color:var(--accent);flex:none;margin-top:2px}
 
   /* SECTIONS */
   section{padding:66px 0 0;border-top:1px solid var(--border);margin-top:64px}
@@ -206,6 +208,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
     <div id="booking-mount">
       <div id="booking-fallback">Add your <b>BOOKING_URL</b> in the config to load the calendar here. &nbsp;<a href="#" id="fallback-link" target="_blank" rel="noopener">Open calendar</a></div>
     </div>
+    <p class="book-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>You'll get a confirmation email and a reminder before your call, so it's easy to keep.</p>
   </div>
 
   <section>
@@ -328,7 +331,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
   }
   window.addEventListener('message', function(ev){
     var d=ev.data, booked=false;
-    if(Object.prototype.toString.call(d)==='[object Array]'){ if(d[0]==='highlevel.setHeight'&&d[1]&&d[1].height){var _if=document.querySelector('#booking-mount iframe');if(_if)_if.style.height=d[1].height+'px';} booked = (d[0]==='msgsndr-booking-complete'); }
+    if(Object.prototype.toString.call(d)==='[object Array]'){ if(d[0]==='highlevel.setHeight'&&d[1]&&d[1].height){var _if=document.querySelector('#booking-mount iframe');if(_if)_if.style.height=(d[1].height+40)+'px';} booked = (d[0]==='msgsndr-booking-complete'); }
     else if(typeof d==='string'){ booked = d.indexOf('msgsndr-booking-complete')>-1; if(!booked){ try{ d=JSON.parse(d); }catch(_){} } }
     if(!booked && d && typeof d==='object' && Object.prototype.toString.call(d)!=='[object Array]'){
       var t=((d.type||d.event||d.action||"")+"").toLowerCase();

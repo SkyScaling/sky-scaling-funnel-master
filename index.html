@@ -48,7 +48,7 @@
     --glow:0 22px 60px -20px var(--accent-glow);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{
     background:var(--bg);color:var(--text);
     font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;
@@ -261,7 +261,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
       <p class="hero-sub">You didn't get licensed to chase people down. See exactly how much <b>Living Benefits commission</b> you're leaving on the table every month, and the system to capture it, on autopilot.</p>
       <div class="stats" id="intro-stats"></div>
       <button class="btn big" onclick="Funnel.start()">See what I'm leaving on the table <span class="arrow">&rarr;</span></button>
-      <p class="trust">Based on real results from our Canadian Living Benefits agents.</p>
+      <p class="trust">Real appointments booked for licensed Canadian Living Benefits advisors.</p>
     </section>
 
     <!-- QUIZ -->
@@ -441,9 +441,9 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
 
   // intro stats
   document.getElementById('intro-stats').innerHTML =
-    '<div class="stat"><div class="sico" style="color:#5271ff">'+icon('clock')+'</div><div class="num">2</div><div class="lbl">Min to finish</div></div>'+
+    '<div class="stat"><div class="sico" style="color:#5271ff">'+icon('clock')+'</div><div class="num">1</div><div class="lbl">Min to finish</div></div>'+
     '<div class="stat"><div class="sico" style="color:#ec4899">'+icon('target')+'</div><div class="num">6</div><div class="lbl">Questions</div></div>'+
-    '<div class="stat"><div class="sico" style="color:#22c55e">'+icon('check')+'</div><div class="num">100%</div><div class="lbl">Personalized</div></div>';
+    '<div class="stat"><div class="sico" style="color:#22c55e">'+icon('check')+'</div><div class="num">100+</div><div class="lbl">Advisors</div></div>';
 
   function show(id){
     var l=document.querySelectorAll('.screen');
