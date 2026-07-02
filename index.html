@@ -231,6 +231,15 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7KHYYF9BFV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7KHYYF9BFV');
+</script>
+<!-- End Google Analytics -->
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -472,6 +481,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
   function choose(Q,o,b,wrap){
     if(state.advancing) return;
     state.answers[Q.id]=o.v;
+    if(window.gtag){ gtag('event','quiz_answer',{step:state.i+1,question:Q.id,answer:o.t}); }
     var all=wrap.querySelectorAll('.opt'); for(var k=0;k<all.length;k++) all[k].classList.remove('sel');
     b.classList.add('sel');
     state.advancing=true;
@@ -529,6 +539,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
 
   function goToResult(){
     evaluate();
+    if(window.gtag){ gtag('event','quiz_complete',{qualified:state.qualified}); if(!state.qualified) gtag('event','quiz_disqualified',{dq_reason:state.dqReason||'other'}); }
     show('s-loading');
     startLoader(function(){ renderResult(); show('s-result'); });
   }
@@ -664,6 +675,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
     var sendP=sendLead();
     if(state.qualified){
       if(window.fbq){ fbq('track','Lead',{value:(state.result&&state.result.monthly)||0,currency:'CAD'}); }
+      if(window.gtag){ gtag('event','lead_submit',{value:(state.result&&state.result.monthly)||0}); }
       var c=state.contact, qp=new URLSearchParams();
       if(c.firstName) qp.set('first_name',c.firstName);
       if(c.lastName) qp.set('last_name',c.lastName);
@@ -685,7 +697,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
   });
 
   window.Funnel={
-    start:function(){ state.i=0; state.dir=1; renderQuestion(); show('s-quiz'); },
+    start:function(){ if(window.gtag) gtag('event','quiz_start'); state.i=0; state.dir=1; renderQuestion(); show('s-quiz'); },
     back:function(){ state.dir=-1; if(state.i>0){ state.i--; renderQuestion(); } else { show('s-intro'); } }
   };
 
