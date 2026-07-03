@@ -258,7 +258,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
     <section class="screen active" id="s-intro">
       <span class="script">How much are you leaving on</span>
       <h1 class="hero-title"><span class="top">The</span><span class="hl">Table</span></h1>
-      <p class="hero-sub">You didn't get licensed to chase people down. See exactly how much <b>Living Benefits commission</b> you're leaving on the table every month, and the system to capture it, on autopilot.</p>
+      <p class="hero-sub">You didn't get licensed to chase people down. See exactly how much <b>Living Benefits commission</b> you're leaving on the table every month. Then see the system that captures it for you, on autopilot.</p>
       <div class="stats" id="intro-stats"></div>
       <button class="btn big" onclick="Funnel.start()">See what I'm leaving on the table <span class="arrow">&rarr;</span></button>
       <p class="trust">Real appointments booked for licensed Canadian Living Benefits advisors.</p>
@@ -296,8 +296,8 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
       <div id="r-diag-wrap"></div>
       <div class="cta-card">
         <div id="r-cta-ico"></div>
-        <h2 id="r-form-title">See How The System Works</h2>
-        <p class="csub" id="r-form-sub">Enter your details and we will show you how the system works, plus the option to talk to our team.</p>
+        <h2 id="r-form-title">Stop Leaving It On The Table.</h2>
+        <p class="csub" id="r-form-sub">Enter your details and we'll walk you through the exact system that turns that number into booked Living Benefits calls, plus a chance to talk it through with our team.</p>
         <form id="lead-form" novalidate>
           <div class="frow">
             <div class="field"><input id="f-first" type="text" autocomplete="given-name" placeholder="First name"><div class="err" id="e-first">Enter your first name.</div></div>
@@ -531,7 +531,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
     if(a.sellingLB==='open'||a.sellingLB==='some')
       out.push("You're barely touching Living Benefits, the one product with no price comparison.");
     if(a.closes==='c0_2'||a.closes==='c3_5')
-      out.push("Your monthly volume has clear room to grow with pre-qualified calls.");
+      out.push("You're closing what you can reach on your own. Pre-qualified calls put more of the right people in front of you.");
     out.push("No consistent flow of qualified Living Benefits appointments hitting your calendar.");
     if(a.timeline==='now'||a.timeline==='d30')
       out.push("You're ready to move now, so every month without a system is money gone.");
@@ -602,8 +602,8 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
       var ds=diagnosis(),html='<div class="diag"><h3>What is costing you</h3><ul>';
       ds.forEach(function(t){ html+='<li><span class="dot">'+icon('zap')+'</span><span>'+t+'</span></li>'; });
       diagWrap.innerHTML=html+'</ul></div>';
-      document.getElementById('r-form-title').textContent='See How The System Works';
-      document.getElementById('r-form-sub').textContent='Enter your details and we will show you exactly how the system works and how we would build it for you. You will also get to talk it through with our team.';
+      document.getElementById('r-form-title').textContent='Stop Leaving It On The Table.';
+      document.getElementById('r-form-sub').textContent='Enter your details and we\'ll walk you through the exact system that turns that number into booked Living Benefits calls, plus a chance to talk it through with our team.';
       document.getElementById('f-submit').innerHTML='Show me how it works <span class="arrow">&rarr;</span>';
       countUp(document.getElementById('r-monthly'), state.result.monthly);
       countUp(document.getElementById('r-annual'), state.result.annual);
