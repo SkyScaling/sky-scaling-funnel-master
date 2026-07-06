@@ -325,29 +325,6 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
       </div>
     </section>
 
-    <!-- BOOKING -->
-    <section class="screen" id="s-booking">
-      <div class="center-head">
-        <h2>Let's Walk You Through It.</h2>
-        <p id="book-sub">Pick a time for your free 15-minute strategy call. We'll map exactly how to capture what you're leaving on the table.</p>
-        <div class="cta-points">
-          <span id="cp1">15-min call</span>
-          <span id="cp2">Honest fit check</span>
-          <span id="cp3">Custom plan</span>
-        </div>
-      </div>
-      <div id="booking-mount"></div>
-    </section>
-
-    <!-- THANKS (disqualified) -->
-    <section class="screen" id="s-thanks">
-      <div class="thanks-ico" id="thanks-ico"></div>
-      <div class="center-head">
-        <h2 id="thanks-title">Thanks for being honest.</h2>
-        <p id="thanks-msg"></p>
-      </div>
-      <footer>Built by <b>Sky Scaling</b> &#127809; Living Benefits leads for Canadian life agents.</footer>
-    </section>
   </main>
 </div>
 
@@ -660,15 +637,6 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
       .catch(function(e){ console.warn('[Sky Scaling] Webhook failed:',e); });
   }
   function withTracking(u){ var qp=new URLSearchParams(); Object.keys(state.tracking).forEach(function(k){ qp.set(k,state.tracking[k]); }); var q=qp.toString(); return q?(u+(u.indexOf('?')>-1?'&':'?')+q):u; }
-  function bookingSrc(){
-    var base=CFG.BOOKING_URL||'',c=state.contact||{},qp=new URLSearchParams();
-    if(c.firstName) qp.set('first_name',c.firstName);
-    if(c.lastName) qp.set('last_name',c.lastName);
-    if(c.email) qp.set('email',c.email);
-    if(c.phone) qp.set('phone',c.phone);
-    Object.keys(state.tracking).forEach(function(k){ qp.set(k,state.tracking[k]); });
-    return base+(base.indexOf('?')>-1?'&':'?')+qp.toString();
-  }
 
   function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
   function validPhone(v){ var d=(v||'').replace(/\D/g,''); return d.length===10 || (d.length===11 && d.charAt(0)==='1'); }
@@ -712,12 +680,6 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
       try{ await Promise.race([sendP, new Promise(function(res){setTimeout(res,2000);})]); }catch(_){ }
       window.location.href=dest+(dest.indexOf('?')>-1?'&':'?')+qp.toString();
       return;
-    } else {
-      document.getElementById('thanks-ico').innerHTML=icon('shield');
-      document.getElementById('thanks-title').textContent='Thanks, '+first+'.';
-      var m=DQ_MSG[state.dqReason]||DQ_MSG.other;
-      document.getElementById('thanks-msg').textContent="We've saved your details and we'll reach out when the timing makes sense. "+m.msg;
-      show('s-thanks');
     }
   });
 
