@@ -104,7 +104,7 @@
   .lead{text-align:center;color:var(--text-2);font-size:clamp(15px,2.2vw,18px);line-height:1.7;max-width:600px;margin:22px auto 0}
   .lead b{color:var(--text);font-weight:600}
 
-  .vwrap{max-width:840px;margin:34px auto 0}
+  .vwrap{max-width:840px;margin:44px auto 0}
   .vid{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border-strong);background:linear-gradient(135deg,#0E1220,#161c30);box-shadow:0 30px 70px -30px rgba(0,0,0,0.8)}
   .vid.r169{aspect-ratio:16/9}
   .vid.play-ready{cursor:pointer}
@@ -117,6 +117,25 @@
   .vid .play svg{width:26px;height:26px;fill:#fff;margin-left:3px}
   .vid .vtag{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:6px;background:rgba(6,8,15,0.60);border:1px solid var(--border-strong);color:#fff;font-family:'Space Grotesk';font-weight:700;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;padding:6px 11px;border-radius:999px;z-index:3;box-shadow:0 6px 18px -8px rgba(0,0,0,0.6)}
   .vid .vtag svg{width:10px;height:10px;fill:var(--accent)}
+
+  /* REPLY-YES CALLOUT */
+  .confirm-cta{display:flex;gap:18px;align-items:center;max-width:660px;margin:34px auto 0;background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--border-strong);border-radius:18px;padding:24px 28px;box-shadow:0 18px 50px -30px rgba(0,0,0,0.6)}
+  .confirm-cta .ico{width:50px;height:50px;flex:none;border-radius:13px;background:var(--accent-tint);color:var(--accent);display:flex;align-items:center;justify-content:center}
+  .confirm-cta .ico svg{width:25px;height:25px}
+  .confirm-cta h3{font-weight:700;font-size:clamp(17px,2.4vw,20px);letter-spacing:-0.01em;margin-bottom:5px}
+  .confirm-cta h3 .y{color:var(--accent)}
+  .confirm-cta p{color:var(--text-2);font-size:14.5px;line-height:1.55}
+  .confirm-cta p b{color:var(--text);font-weight:600}
+
+  /* NEXT-STEP CARDS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+  .step{border:1px solid var(--border);background:var(--panel);border-radius:var(--radius);padding:28px 24px}
+  .step .snum{width:34px;height:34px;border-radius:10px;background:var(--accent-tint);color:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:800;font-size:15px;margin-bottom:16px}
+  .step h3{font-weight:700;font-size:18px;margin-bottom:9px}
+  .step p{color:var(--text-2);font-size:14.5px;line-height:1.6}
+  .reassure{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:32px;color:var(--text-2);font-size:14px}
+  .reassure span{display:inline-flex;align-items:center;gap:8px}
+  .reassure svg{width:17px;height:17px;color:var(--accent);flex:none}
 
   section{padding:66px 0 0;border-top:1px solid var(--border);margin-top:64px}
   .sec-title{text-align:center;font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,4.4vw,40px);letter-spacing:-0.02em;line-height:1.1}
@@ -155,7 +174,9 @@
 
   @media (max-width:700px){
     .tgrid,.ogrid{grid-template-columns:1fr}
-    .vwrap{margin-top:24px}
+    .steps{grid-template-columns:1fr;margin-top:26px}
+    .confirm-cta{flex-direction:column;text-align:center;gap:14px;margin-top:28px}
+    .vwrap{margin-top:32px}
     section{padding:38px 0 0;margin-top:38px}
     .ogrid{margin-top:26px}
     .confirm-badge{margin-top:42px}
@@ -204,9 +225,32 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
   <div class="confirm-badge"><div class="ring"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div></div>
   <div class="eyebrow">&lt; You're Confirmed &gt;</div>
   <h1 class="hero">Your <span class="a">Discovery Call</span> Is Scheduled!</h1>
-  <p class="lead">Check your email and text for the details. Watch the quick video below, then scroll down for answers to the questions agents ask us <b>before</b> our call.</p>
+  <p class="lead">One quick thing first: <b>we just texted you, reply YES to confirm.</b> Then watch the short video below, and scroll down for answers to the questions agents ask us before our call.</p>
+
+  <div class="confirm-cta">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg></div>
+    <div>
+      <h3>Check your phone: reply <span class="y">YES</span></h3>
+      <p>We just sent you a text. Reply <b>YES</b> so we know you're coming and hold your spot for the call.</p>
+    </div>
+  </div>
 
   <div class="vwrap" id="confirm-mount"></div>
+
+  <section>
+    <div class="sec-title">How To Get The Most <span class="a">From Your Call</span></div>
+    <div class="sec-sub">Three quick things so the call is worth your time.</div>
+    <div class="steps">
+      <div class="step"><div class="snum">1</div><h3>Reply to the text</h3><p>Reply YES to the text we just sent, and add the call to your calendar from your confirmation. A reminder goes out before we talk.</p></div>
+      <div class="step"><div class="snum">2</div><h3>Be somewhere you can talk</h3><p>It's a quick call, about 15 minutes, on the phone. Pick a quiet spot where you can talk business for a few minutes.</p></div>
+      <div class="step"><div class="snum">3</div><h3>Think about your goals</h3><p>No prep needed. Just have a rough idea of how many clients you close a month now, and where you want that to be.</p></div>
+    </div>
+    <div class="reassure">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>About 15 minutes</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>100% free</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>No obligation</span>
+    </div>
+  </section>
 
   <section>
     <div class="sec-title">Get <span class="a">Answers</span> To Your Questions Before Our Call</div>
