@@ -291,7 +291,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
       <span class="script">Done-for-you Living Benefits leads</span>
       <h1 class="hero-title"><span class="top">Do You</span><span class="hl">Qualify?</span></h1>
       <p class="hero-sub">We fill licensed Canadian agents' calendars with <b>pre-qualified Living Benefits appointments</b>, done for you. Answer 6 quick questions to see if you're a fit.</p>
-      <div class="quiz-divider"><span>Let's find out</span></div>
+      <div class="quiz-divider"><span>Verify your eligibility</span></div>
       <div class="intro-qlabel" id="intro-qlabel"></div>
       <div id="intro-q-opts"></div>
       <div class="stats" id="intro-stats"></div>
@@ -335,7 +335,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
         <form id="lead-form" novalidate>
           <div class="field"><input id="f-first" type="text" autocomplete="given-name" placeholder="First name"><div class="err" id="e-first">Enter your first name.</div></div>
           <div class="field"><input id="f-phone" type="tel" autocomplete="tel" placeholder="Your phone"><div class="err" id="e-phone">Please enter a valid phone number.</div></div>
-          <button class="btn big" type="submit" id="f-submit">Show me how <span class="arrow">&rarr;</span></button>
+          <button class="btn big" type="submit" id="f-submit">Claim my spot <span class="arrow">&rarr;</span></button>
           <p class="privacy">&#128274; Your info stays private. No spam, ever.</p>
         </form>
         <div id="r-resource" style="display:none">
@@ -536,7 +536,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
   function diagnosis(){
     var a=state.answers,out=[];
     if(a.sellingLB==='open'||a.sellingLB==='some')
-      out.push("You're barely touching Living Benefits, the one product with no price comparison.");
+      out.push("You're barely touching Living Benefits, the one product with no price war.");
     if(a.closes==='c0_2'||a.closes==='c3_5')
       out.push("You're closing what you can reach on your own. Pre-qualified calls put more of the right people in front of you.");
     out.push("No consistent flow of qualified Living Benefits appointments hitting your calendar.");
@@ -599,7 +599,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
         '<div class="r-eyebrow">&lt; You qualify &gt;</div>'+
         '<div class="r-script">You\'re a fit.</div>'+
         '<p class="r-line">Based on your answers, you\'re exactly the kind of licensed agent we build done-for-you Living Benefits systems for. We only take on a handful of agents per province, so spots are limited.</p>';
-      var ds=diagnosis(),dhtml='<div class="diag"><h3>What is costing you</h3><ul>';
+      var ds=diagnosis(),dhtml='<div class="diag"><h3>What this is costing you</h3><ul>';
       ds.forEach(function(t){ dhtml+='<li><span class="dot">'+icon('zap')+'</span><span>'+t+'</span></li>'; });
       dhtml+='</ul></div>';
       dhtml+='<div class="proof"><div class="proof-label">Proof from Canadian agents</div><div class="proof-grid">'+
@@ -610,7 +610,7 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
       diagWrap.innerHTML=dhtml;
       document.getElementById('r-form-title').textContent='Let\'s Fill Your Calendar.';
       document.getElementById('r-form-sub').textContent='Drop your name and number and we\'ll show you exactly how we\'d fill your calendar, and whether one of our spots is the right fit for you.';
-      document.getElementById('f-submit').innerHTML='Show me how <span class="arrow">&rarr;</span>';
+      document.getElementById('f-submit').innerHTML='Claim my spot <span class="arrow">&rarr;</span>';
     } else {
       var m=DQ_MSG[state.dqReason]||DQ_MSG.other;
       top.innerHTML='<div class="r-eyebrow" style="margin-bottom:20px">&lt; Straight talk &gt;</div>';
