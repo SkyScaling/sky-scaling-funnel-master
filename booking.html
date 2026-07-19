@@ -255,9 +255,10 @@ src="https://www.facebook.com/tr?id=1532837473873011&ev=PageView&noscript=1"
     return d;
   }
   var LG=(C.LOGOS||[]);
-  for(var lp=0; lp<4; lp++){ LG.forEach(function(l){ lr.appendChild(logoItem(l)); }); }
+  var reduceMo = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  for(var lp=0; lp<(reduceMo?1:4); lp++){ LG.forEach(function(l){ lr.appendChild(logoItem(l)); }); }
   (function(){
-    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    if(reduceMo) return;
     var n=LG.length; if(!n) return;
     var offset=0, last=null, half=0, raf=null;
     function measure(){ var seam=lr.children[n]; half = seam ? seam.offsetLeft : lr.scrollWidth/4; }
